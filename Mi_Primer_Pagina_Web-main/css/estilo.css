@@ -23,3 +23,24 @@ dt{
     color: blue;
     font-size: 40px;
 }
+footer{
+    text-align: center;
+    color: grey;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.estilop{
+    color: blueviolet;
+    font-size: 20 xp;
+}
+
+#caracteristicas{
+  color: rgb(177, 45, 45);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
+
+}
+.container{
+    text-align: center;
+    max-width: 750px;
+    margin: 0%;
+}
