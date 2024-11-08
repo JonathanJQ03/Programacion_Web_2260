@@ -1,0 +1,28 @@
+
+body{
+    background-color: rgb(0, 0, 0);
+}
+header{
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(247, 247, 247);
+    text-align: center;
+}
+#FotoPersonal{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+section{
+    color: white;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+}
+.Redes{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+h4{
+    color: blue;
+}
