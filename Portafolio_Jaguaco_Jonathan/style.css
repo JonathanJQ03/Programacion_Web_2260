@@ -3,14 +3,14 @@ body{
     background-color: rgb(0, 0, 0);
 }
 header{
-    color: darkgoldenrod;
+    color: yellow;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
 }
 #FotoPersonal{
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
 }
 section{
 
@@ -21,16 +21,16 @@ section{
 }
 .Redes{
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
 }
 h4{
-    color: blue;
+    color: orange;
     font-size: larger;
     font-family: 'Times New Roman', Times, serif;
 }
 h3{
-    color: blue;
+    color: orange;
     font-size: larger;
     font-family: 'Times New Roman', Times, serif;
 }
@@ -39,7 +39,17 @@ p{
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
 }
-dl{
-    font-family: 'Times New Roman', Times, serif;
+footer{
+    color: white;
+    background-color: red;
     text-align: center;
+}
+
+.container{
+    max-width: 550px;
+    margin: auto;
+    text-align: center;
+}
+ul{
+    text-align: left;
 }
