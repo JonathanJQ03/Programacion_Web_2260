@@ -44,3 +44,30 @@ footer{
     max-width: 750px;
     margin: 0%;
 }
+
+.spanuso{
+    color: rgb(212, 0, 0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+.boton{
+    color: rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: blue;
+    font-weight: bold;
+    padding: 10%;
+}
+ 
+#buscarBoton{
+    color: rgb(35, 194, 56);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: blue;
+    font-weight: bold;
+    padding: 1%;
+}
