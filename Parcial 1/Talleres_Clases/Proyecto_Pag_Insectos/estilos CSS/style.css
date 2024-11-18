@@ -1,0 +1,80 @@
+body{
+    background-color: rgb(255, 255, 255);
+}
+header{
+    text-align: center;
+    background-color: rgb(56, 199, 45);
+}
+#botonBuscar{
+    background-color: rgb(179, 189, 189);
+    cursor: pointer;
+}
+#eslogan{
+    font-size: small;
+}
+
+footer{
+    text-align: center;
+    background-color: rgb(226, 211, 226);
+}
+
+.spanuso{
+    color: rgb(255, 0, 0);
+
+}
+h2{
+    text-align: center;
+    color: green;
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.insectos{
+    border-radius: 20%;
+    cursor: pointer;
+
+}
+
+.flexstyle{
+    border-color: green;
+    border-width: 4px;
+    border-style: double;
+    display: flex;
+    justify-content:space-evenly;
+
+}
+
+.contenedorGeneral{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: start;
+}
+ .contenedorDos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 750px;
+    height:auto
+    
+ }
+.contenedorDos > section{
+width: 220px;
+height: 140px;
+}
+
+ #masinformacion{
+    background-color: greenyellow;
+    border: 34px;
+    border-color: black;
+    text-align: centers;
+ }
+  #redesSociales{
+    background-color: forestgreen;
+    text-align: center;
+  }
+
+.formSection{
+background-color: gray ; 
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos CSS/tableStyle.css">
+    <title>Tablas</title>
+</head>
+<body>
+    <header>
+        <h1>Tablas</h1>
+        <p>EL uso de la etiqueta <em>table</em> es para el envío y recepcion de informacion </p>
+    </header>
+    <section>
+        <article>
+                <table frame = "void" rules="rows" border = "3px" cellpadding="12px" cellspacing="3px">
+                <caption align="bottom">Tabla de registro</caption>
+                <colgroup>
+    
+                    <col style="background-color: burlywood;">
+                    <col>
+                    <col style="background-color: burlywood;">
+                <thead>
+                    <tr>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Dirección</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan=" 5">Jonathan</td>
+                        <td>Jimenez</td>
+                        <td rowspan="5">Sangolquí</td>
+                    </tr>
+                    <tr>
+                        <td>Diana</td>
+                    </tr>
+                    <tr>
+                        <td>Miguel</td>                  </tr>
+                    <tr>
+                        <td>Carlos</td>
+
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>sum</td>
+                        <td>sum</td>
+                        <td>sum</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </article>
+
+    </section>
+    <br>
+    <form action ="submit" method="post">
+        <label>Nombres Completos</label>
+        <input type="text" id ="txtNombres", placeholder= "Nombres..."> <br>
+        <label >Apellidos Completos</label>
+        <input type="text" id = "txtApellidos", placeholder= "Apellidos...", minlength="1" maxlength="3"> <br>
+        <label">Edad</label>
+        <input type="number" id = "txtEdad", placeholder= "Pasword"><br>
+         <label >Ciudad</label>
+        <input type="text" id ="txtCiudad" placeholder="Lugar de Residencia...">
+        <br><br>
+            <input type="submit" value="Enviar Dato">
+        <br><br>
+        <label">Cuadro de Sugerencias</label> <br>
+        <textarea name = "sugerencias" id = "sugerencias">
+        </textarea>
+    </form>
+</body>
+</html>

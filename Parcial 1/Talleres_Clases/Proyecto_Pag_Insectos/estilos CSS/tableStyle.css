@@ -1,0 +1,36 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+header{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(5,92,176,1) 19%, rgba(0,212,255,1) 100%);
+    color: white;
+}
+caption{
+    background-color: rgb(33, 88, 88);
+    color: whiTE;
+}
+input[type="text"]{
+    background-color: bisque;
+    border-bottom: 1px solid black;
+    outline: none;
+    border-radius: 10px;
+    border: 0px;
+
+}
+
+input[type="number"]{ 
+    background-color: bisque;
+    border-bottom: 1px solid black;
+    outline: none;
+    border-radius: 10px;
+    border: 0px;
+
+}
+#txtNombres::placeholder{
+    color: rgb(216, 41, 41);
+}
+::placeholder{
+    color: rgb(216, 41, 41);
+}
+
