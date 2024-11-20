@@ -1,0 +1,31 @@
+body{
+    text-align: center;
+    background-color: rgb(206, 204, 201);
+}
+.loginContenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.loginContenedor > section{
+    background-color: white;
+    text-align: center;
+    width: 30%;
+    padding: 20px;
+    border: 1.5px solid black;
+}
+footer{
+    background-color: antiquewhite;
+}
+
+::placeholder{
+    color: rgb(94, 92, 92);
+}
+#botonRegresar{
+    position: relative;
+    right: -200px;
+    top: 20px;
+    border-radius: 20px;
+}
+

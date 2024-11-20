@@ -1,0 +1,8 @@
+body{
+    align-items: center;
+    text-align: center;
+}
+header{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(142,5,176,1) 0%, rgba(172,92,201,1) 0%, rgba(139,123,164,1) 22%, rgba(34,228,37,1) 100%);
+}

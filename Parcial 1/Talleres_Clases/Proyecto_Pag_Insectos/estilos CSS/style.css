@@ -3,7 +3,9 @@ body{
 }
 header{
     text-align: center;
-    background-color: rgb(56, 199, 45);
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,4,1) 0%, rgba(172,92,201,1) 77%, rgba(142,5,176,1) 100%);
+    border: 1px solid black;
 }
 #botonBuscar{
     background-color: rgb(179, 189, 189);
@@ -76,5 +78,7 @@ height: 140px;
   }
 
 .formSection{
-background-color: gray ; 
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(142,5,176,1) 0%, rgba(172,92,201,1) 0%, rgba(0,255,4,1) 100%);
+    border: 1px solid black; 
 }

@@ -1,0 +1,52 @@
+body{
+    background-color: yellowgreen;
+}
+.productos{
+    width: 200px;
+    height: 200px;
+}
+.contenedorTienda{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.apartadoBotones{
+    background-color: rgb(167, 159, 159); 
+    width: 30%;
+
+}
+.contenedorElementos{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 70%;
+    align-items: center;   
+     
+}
+header{
+    text-align: center;
+    background-color: rgb(118, 130, 168);
+}
+footer{
+    text-align: center;
+}
+.apartado{
+    border: 5px solid rgb(13, 177, 27);
+    border-radius: 14px;
+    background-color: green;
+    width: 150px;
+    height: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+#buzon{
+    position: fixed;
+    top: 160px;    
+    right: 20px;   
+    background-color: chocolate;
+
+}

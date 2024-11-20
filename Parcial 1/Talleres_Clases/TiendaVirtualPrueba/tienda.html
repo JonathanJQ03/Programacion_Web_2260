@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Virtual</title>
+    <link rel="stylesheet" href="tiendaStyle.css">
+</head>
+<body>
+    <header>
+        <h1>Tienda Virtual</h1>
+    <nav>
+        <a href="#camisetaImagen">Ropa</a>
+        <a href="#celularImagen">Tecnologia</a>
+        <a href="#zapatoImagen">Zapatos</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <br><br>
+
+    </header>
+    <div class="contenedorTienda">
+        <aside class = "apartadoBotones">
+            <br><br>
+            <a href="#camisetaImagen"><button class="apartado">Ropa</button><br><br></a>
+            <a href="#celularImagen"><button class="apartado">Tecnologia</button><br> <br></a>
+            <a href="#zapatoImagen"><button class="apartado">Zapatos</button><br> <br></a>
+        </aside>
+        <section class = "contenedorElementos">
+            <article id = "camisetaImagen">
+                <img src="images/camiseta.jpeg" alt="camisetaStock" class = "productos"><br>
+                <h2>Camiseta Color - Negro</h2>
+                <p>Precio: 45$</p>
+            </article>
+            <article id = "celularImagen">
+                <img src="images/tecnologia.jpeg" alt="celularStock" class = "productos">
+                <h2>Celular Samsung A50</h2>
+                <p>Precio: 340$</p>
+            </article>
+            <article id = "zapatoImagen">
+                <img src="images/zapatos.jpg" alt="zapatosStock" class = "productos">
+                <h2>Zapatos Nike</h2>
+                <p>Precio: 80</p>
+            </article>
+        </section>
+    </div>
+    <aside id = "buzon">
+        <table style = "border: solid black;">
+            <thead>
+                <th>Servicio al Cliente</th>
+            </thead>
+            <tbody>
+                <td>
+                    <center>
+                        <img src="images/robot.avif" alt="iconorobot" width="80px" height="80px" style="border-radius: 50%;"><br>
+                        <input type="text" id = "comentarios"  ><br>
+
+                    </center>
+    
+
+            </td>
+                
+            </tbody>
+        </table>
+    </aside>
+    <footer>
+        <h3>Sobre Nosotros</h3>
+        <p>Somos una tienda virtual especializada en diferentes articulos de compra para facilitar las compras de un usuario en linea.</p>
+        <h3>Siguenos</h3>
+        <aside id = contenedorImagenes>
+            <a href="https://www.instagram.com/javier.xssj/?hl=es" target="_blank "><img src="images/Logo_instagram.png" alt="LOGO INSTRAGRAM" width="20px" height="20px"></a>
+            <a href="https://www.facebook.com/jonathan.jaguaco.5/" target="_blank "><img src="images/faceboolog.png" alt="LOGO FACEBOOK" width="20px" height="20px"></a>
+            <a href="https://web.whatsapp.com" target="_blank"><img src="images/images.png" alt="Icono whatsapp" width="20px" height="20px"></a>
+        </aside>
+        <br>
+        <a href="tablaInventario.html"><button id = "tablasInventarioBoton">Ver Tablas de Inventario</button><br>        </a>
+        <p>2024 Tienda Virtual. Todos los derechos reservados. Estudiante de Ingenieria en Software  Jonathan Jaguaco</p>
+    </footer>
+</body>
+</html>
