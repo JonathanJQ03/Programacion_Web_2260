@@ -18,51 +18,59 @@
     <br><br>
 
     </header>
+    <br><br>
     <div class="contenedorTienda">
         <aside class = "apartadoBotones">
             <br><br>
-            <a href="#camisetaImagen"><button class="apartado">Ropa</button><br><br></a>
-            <a href="#celularImagen"><button class="apartado">Tecnologia</button><br> <br></a>
-            <a href="#zapatoImagen"><button class="apartado">Zapatos</button><br> <br></a>
+            <a href="#camisetaImagen"><button id = "enviarBoton">Ropa</button><br><br></a>
+            <a href="#celularImagen"><button id = "enviarBoton">Tecnologia</button><br> <br></a>
+            <a href="#zapatoImagen"><button id = "enviarBoton">Zapatos</button><br> <br></a>
         </aside>
         <section class = "contenedorElementos">
             <article id = "camisetaImagen">
                 <img src="images/camiseta.jpeg" alt="camisetaStock" class = "productos"><br>
                 <h2>Camiseta Color - Negro</h2>
                 <p>Precio: 45$</p>
+                <button id="enviarBoton">Comprar</button>
             </article>
+            <br>
             <article id = "celularImagen">
                 <img src="images/tecnologia.jpeg" alt="celularStock" class = "productos">
                 <h2>Celular Samsung A50</h2>
                 <p>Precio: 340$</p>
+                <button id="enviarBoton">Comprar</button>
             </article>
+            <br>
             <article id = "zapatoImagen">
                 <img src="images/zapatos.jpg" alt="zapatosStock" class = "productos">
                 <h2>Zapatos Nike</h2>
                 <p>Precio: 80</p>
+                <button id="enviarBoton">Comprar</button>
             </article>
         </section>
     </div>
     <aside id = "buzon">
-        <table style = "border: solid black;">
+        <table >
             <thead>
-                <th>Servicio al Cliente</th>
+                <th style="background-color: green;">Servicio al Cliente</th>
             </thead>
             <tbody>
                 <td>
                     <center>
                         <img src="images/robot.avif" alt="iconorobot" width="80px" height="80px" style="border-radius: 50%;"><br>
-                        <input type="text" id = "comentarios"  ><br>
-
+                        <input type="text" id = "comentarios" placeholder="Escribe tu mensaje..." ><br>
+                        <br> <button id = "enviarBoton">Enviar</button>
                     </center>
-    
-
+            </td>
+            <td>
+                
             </td>
                 
             </tbody>
         </table>
     </aside>
-    <footer>
+    <br>
+    <footer><br>
         <h3>Sobre Nosotros</h3>
         <p>Somos una tienda virtual especializada en diferentes articulos de compra para facilitar las compras de un usuario en linea.</p>
         <h3>Siguenos</h3>
@@ -72,8 +80,8 @@
             <a href="https://web.whatsapp.com" target="_blank"><img src="images/images.png" alt="Icono whatsapp" width="20px" height="20px"></a>
         </aside>
         <br>
-        <a href="tablaInventario.html"><button id = "tablasInventarioBoton">Ver Tablas de Inventario</button><br>        </a>
+        <a href="tablaInventario.html"><button id = "enviarBoton">Ver Tablas de Inventario</button><br>        </a>
         <p>2024 Tienda Virtual. Todos los derechos reservados. Estudiante de Ingenieria en Software  Jonathan Jaguaco</p>
-    </footer>
+        <br></footer>
 </body>
 </html>
