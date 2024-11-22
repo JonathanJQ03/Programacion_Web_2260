@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Virtual</title>
     <link rel="stylesheet" href="tiendaStyle.css">
+    <link rel="stylesheet" href="buzonStyle.css">
 </head>
 <body>
     <header>
@@ -48,27 +49,19 @@
                 <button id="enviarBoton">Comprar</button>
             </article>
         </section>
+        <aside class = "buzon">
+            <article class = "buzonCaja" style="background-color: rgb(39, 189, 39);"><h2>Servicio al Cliente <button> X </button></h2></article>
+            <article class = "buzonCaja">
+                <img src="images/robot.avif" alt="iconorobot" width="130px" height="130px"> <br>
+            </article>
+            <article>
+                <input type="text" id = "comentarios" placeholder="Escribe tu mensaje..."><br>
+            </article><br>
+            <article>
+                <button id = "enviarBoton">Enviar</button>
+            </article>
+        </aside>
     </div>
-    <aside id = "buzon">
-        <table >
-            <thead>
-                <th style="background-color: green;">Servicio al Cliente</th>
-            </thead>
-            <tbody>
-                <td>
-                    <center>
-                        <img src="images/robot.avif" alt="iconorobot" width="80px" height="80px" style="border-radius: 50%;"><br>
-                        <input type="text" id = "comentarios" placeholder="Escribe tu mensaje..." ><br>
-                        <br> <button id = "enviarBoton">Enviar</button>
-                    </center>
-            </td>
-            <td>
-                
-            </td>
-                
-            </tbody>
-        </table>
-    </aside>
     <br>
     <footer><br>
         <h3>Sobre Nosotros</h3>
@@ -79,9 +72,11 @@
             <a href="https://www.facebook.com/jonathan.jaguaco.5/" target="_blank "><img src="images/faceboolog.png" alt="LOGO FACEBOOK" width="20px" height="20px"></a>
             <a href="https://web.whatsapp.com" target="_blank"><img src="images/images.png" alt="Icono whatsapp" width="20px" height="20px"></a>
         </aside>
+    
         <br>
         <a href="tablaInventario.html"><button id = "enviarBoton">Ver Tablas de Inventario</button><br>        </a>
         <p>2024 Tienda Virtual. Todos los derechos reservados. Estudiante de Ingenieria en Software  Jonathan Jaguaco</p>
-        <br></footer>
+        <br>
+    </footer>
 </body>
 </html>

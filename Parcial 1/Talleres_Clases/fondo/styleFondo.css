@@ -1,0 +1,32 @@
+body{
+    background-color: white;
+}
+*{
+    margin: 0px;    
+}
+header{
+    background-color: purple;
+}
+
+.section1{
+    height: 400px;
+    background-color: #000;
+    background-image: url("anfuular.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.section2{
+    background-image: url("https://placehold.jp/0/5b61ae/5b61ae/1000x500.png");
+    height: 400px;;
+}
+.section3{
+    background-image: url("fondoAngular.jpg");
+    background-size: 100%;
+    background-attachment: fixed;
+    height: 500px;
+}
+.section4{
+    height: 1000px;
+
+}

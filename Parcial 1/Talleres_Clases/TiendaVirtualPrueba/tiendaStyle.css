@@ -9,6 +9,7 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
     height: 200px;
 }
 .contenedorTienda{
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content:flex-start;
@@ -36,6 +37,9 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
 }
 
 header{
+    position: sticky;
+    top: 0;
+    z-index: 1;
     color: white;
     background: rgb(142,5,176);
     background: linear-gradient(90deg, rgba(142,5,176,1) 0%, rgba(172,92,201,1) 0%, rgba(129,125,203,1) 0%, rgba(26,252,5,1) 100%, rgba(132,164,123,1) 100%, rgba(68,233,53,1) 100%, rgba(68,233,53,1) 100%, rgba(68,233,53,1) 175%, rgba(68,233,53,1) 175%);
@@ -57,15 +61,6 @@ background: linear-gradient(90deg, rgba(142,5,176,1) 0%, rgba(172,92,201,1) 0%, 
     font-size: large;
     text-align: center;
     cursor: pointer;
-
-}
-
-#buzon{
-    position: fixed;
-    top: 300px;    
-    right: 20px;   
-    background-color: rgb(103, 207, 117);
-    padding: 50px;
 
 }
 input[type = "text"]{
