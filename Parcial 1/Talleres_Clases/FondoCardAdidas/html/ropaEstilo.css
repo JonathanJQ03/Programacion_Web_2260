@@ -1,0 +1,113 @@
+*{
+    margin: 0px;
+}
+body{
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+header{
+    text-align: center;
+    font-size:xx-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: red;
+
+}
+.cartaImagen{
+
+    background-image: url(images/camisetaBarcelona.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 300px;
+}
+
+.cartaInformacion{
+    height: 250px;
+    width: 300px;
+    padding: 50px;
+    background-color:rgb(230, 240, 255);
+    margin-bottom: 50px;
+}
+
+.cartaContenedor{
+    box-shadow: #000000 0px 0px 50px;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    min-height: 600px;
+    background-color: rgb(255, 255, 255);
+    width: 400px;
+
+}
+
+.masDetalles{
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+    width: 200px;
+    height: 60px;
+    position: relative;
+    left: 25%;
+    top: 45%;
+    font-size: 25px;
+    cursor: pointer;
+
+}
+
+
+.informacionCarta{
+    margin-top: 40px;
+    color: rgb(25, 19, 80);
+
+}
+.informacion{
+    color: rgb(0, 0, 0);
+}
+.tituloProducto{
+    font-size: 24px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body:has(.tituloProducto:hover){
+    background-color: black;
+    transition: background-color 0.6s ease;
+
+}
+
+.cartaContenedor:has(.tituloProducto:hover) .cartaImagen {
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(50px); 
+   
+}
+
+.cartaContenedor:has(.tituloProducto:hover) .tituloProducto {
+    color: rgb(255, 0, 0);
+    cursor: pointer;
+}
+.cartaContenedor:has(.tituloProducto:hover) .informacion {
+    color:#1000f1;
+}
+
+.blue{
+    background-color: rgb(42,51,79);
+    color: rgb(42,51,79);
+    border-radius: 100%;
+}
+
+.red{
+    background-color: #a12c3f;
+    color: #a12c3f;
+    border-radius: 100%;
+}
+
+.yellow{
+    background-color: #fbec07;
+    color: #fbec07;
+    border-radius: 100%;
+}
+
+.orange{
+    background-color: #e0a60f;
+    color: #e0a60f;
+    border-radius: 100%;
+}
