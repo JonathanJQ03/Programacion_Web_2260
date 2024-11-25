@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+}
+body{
+    height: 100%;
+    background-color: white;
+}
+.container{
+    display: flex;
+    border: 2px solid blue;
+    height: 500px;
+    width: 40%;
+
+}
+/*
+    flex: 1 1 100px; -> flexx-grow flexx-shrink flex-basis
+    flex-grow: 1; -> cuanto ocupa de todo el espacio disponible
+    flex-shrink: 1; -> ocupar un espacio cuando se reduce
+    flex-basis: 100px; -> tamaño inicial del contenedor antes de grow o shrink
+*/
+.container div{
+    height: 50px;
+}
+.item-1{
+    flex: 1 1 100px; /* Es lo mismo que usar flex-grow: 1; flex-shrink: 1; flex-basis: 100px*/
+    /*flex: 0 0 100px; no va a cambiar respecto a hacerse grande o pequeño la pantalla*/
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100px;
+    background-color: red;
+}
+.item-2{
+    flex: 0 100px;
+    background-color: green;
+}
+.item-3{
+    flex: 1 1 100px;
+    background-color: blue;
+}
+.item-4{
+    flex: 1 1 100px;
+    background-color: yellow;
+}
