@@ -1,0 +1,28 @@
+*{
+    margin: 0px;
+}
+#revista{
+    font-size: 20px;
+    column-count: 3;
+    column-gap: 20px;
+    border: 1px solid black;
+    padding: 30px;
+    
+}
+header{
+    text-align: center;
+    color: white;
+    background-color: rgb(33, 33, 92);
+    width: auto;
+    height: 50px;
+}
+footer{
+    text-align: center;
+    color: white;
+    background-color: rgb(33, 33, 92);
+    width: auto;
+    height: 50px; 
+}
+#Titulo1{
+    color: blue;
+}

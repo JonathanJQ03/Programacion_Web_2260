@@ -1,0 +1,15 @@
+#noticias{
+    width: 500px;
+    padding: 10px;
+    border: 1px solid black; 
+
+    /*Creacion de columnas para un articulo*/
+    column-count: 4;
+    column-gap: 20px; /*Espaciado de columnas*/
+
+    column-rule-style: dotted; /*estilos de columna*/
+    column-rule-color: red;
+    column-rule-width: 10px;
+
+    column-rule: 1px solid red;
+}
