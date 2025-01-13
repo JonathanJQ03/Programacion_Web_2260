@@ -290,3 +290,111 @@ Cuando necesitas la palabra clave arguments
 //Sirven para almacenar funciones separadas con ","
 const sumarValores = (a,b) => (a + b);
 console.log(sumarValores(10,20));
+
+/*
+------------------ Objetos-----------------
+sintaxis: variable nombreObjeto = {
+    clave: valor,
+    .
+    .
+    .
+    clave_n : valor_n
+}
+    claves: identificaores unicos
+    valores: cualquier tipo de dato
+    - Los objetos cuentan con metodos con el uso de "."
+    -Usar this dentro de un objeto te permite acceder rápidamente a las propiedades y métodos del mismo objeto sin necesidad de escribir el nombre del objeto
+    repetidamente. Esto hace que tu código sea más limpio, flexible y fácil de mantener.
+
+*/
+
+//Object.create(): creacion de objetos mediante una plantilla
+//sintaxis : const nombreObjeto = Object.create(nombrePlantillaObjeto);
+//Estos prototipos son OBJETOS: Herendan metodos y funciones a los objetos
+
+const prototipoNumeros ={
+    sumar: function(a,b) {
+        return a+b;
+    },
+    restar: function(a,b){
+        return a-b;
+    }
+};
+// podemos usar los metodos del prototipo mediante una funcion expresada
+//del mismo modo podemos enviar argumentos al prototipo para que se guarden
+const objetoPrototipado = Object.create(prototipoNumeros);
+let resultadoP1 = objetoPrototipado.sumar(1,2);
+console.log(objetoPrototipado.sumar(1,3));
+console.log(resultadoP1);
+
+/*
+diferencia entre tipos de this:
+- usados tanto en objetos, funciones, construc
+- this. usa el valor directamente y no lo modifica
+- ${this.valor}: se transforma en una cadena de texto directamene usado en impresiones de consola
+*/
+//PROPIEDADES DE LOS OBJETOS
+//1. Agregar o modificar valores:simplemente declaro otro valor a la misma clave
+//esto hace que se sobreescriba el valor anterior
+const persona1 = {
+    nombre: "Javier",
+    apellido: "Velez",
+    edad: 22,
+    saludad : function(){
+        console.log(`Hola mi nombre es ${this.nombre}`);
+    }
+}
+//sobreescribo el dato
+persona1.nombre = "Kevin";
+persona1.saludad();
+
+//2.Eliminar propiedades: ELimina tanto el valor como la clave
+//delete.objeto.clave;
+delete persona1.nombre;
+console.log(persona1);
+
+//3. Iterar sobre las propiedades de un objeto puedo usar for in
+for(iteracion in persona1){
+    //itero entre propiedades y valores
+    console.log(iteracion);
+    console.log(persona1[iteracion]);
+}
+//pero usando otro for in con valor de la iteracion obtenemos ambas cosas:
+for(let iteracionFor in persona1){
+    console.log(`${iteracionFor}:${persona1[iteracionFor]}`);
+}
+
+//4. Verificar las propiedades del objeto
+console.log("nombre" in persona1);
+console.log("apellido" in persona1);
+console.log("edad" in persona1);
+console.log("saludar" in persona1);
+//sintaxis: propiedad in objeto_Nombre
+
+//Metodos utiles para trabajar con objetos
+//1. Object.keys(): devuelve un array con las claves de un objeto
+const clavesObjeto = Object.keys(persona1);
+console.log(clavesObjeto);
+//2. Object.values(): devuelve un array con los valores de un objeto
+const valoresObjeto = Object.values(persona1);
+console.log(valoresObjeto);
+//3. Object.entries(): devuelve un array con las claves y los valores de un objeto  
+const entriesObjeto = Object.entries(persona1);
+console.log(entriesObjeto);
+//4. Object.assign(): copia las propiedades de un objeto a otro objeto
+const copiaObjeto = Object.assign({}, persona1);
+console.log(copiaObjeto);
+//5. Object.freeze(): congelar un objeto
+/*
+No se pueden agregar nuevas propiedades.
+No se pueden eliminar propiedades existentes.
+No se pueden modificar las propiedades existentes, como cambiar sus valores o configuraciones.
+*/
+// 6. Object.seal(): congelar un objeto pero permitiendo agregar nuevas propiedades
+/*
+No se pueden eliminar propiedades existentes.
+No se pueden modificar las propiedades existentes, como cambiar sus valores o configuraciones.
+*/
+
+
+
