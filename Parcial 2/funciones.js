@@ -35,7 +35,7 @@ console.log(typeof multiplicarFuncion);
 //Por ejemplo setTimeout es anonima ya q no tiene un nombre en especifico
 setTimeout(function () {
     console.log("Hola desde una funcion anonima...");
-}, 0000);
+}, (10000));
 
 const persona = {
     nombre: 'Javier',
