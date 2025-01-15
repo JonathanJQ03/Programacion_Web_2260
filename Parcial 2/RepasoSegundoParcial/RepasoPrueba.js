@@ -34,6 +34,7 @@ class Inventario{
         }
         return this._productosInventario;
     }
+    
 }
 
 //instanciamos los productos cada producto es una entidad diferente
