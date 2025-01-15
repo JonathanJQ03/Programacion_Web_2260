@@ -107,7 +107,7 @@ class Orden {
     }
 
     calcularImpuestos() {
-        const TASA_IMPUESTO = 0.16; // 16% de impuesto
+        const TASA_IMPUESTO = 0.16; 
         const subtotal = this.calcularTotal();
         const impuesto = subtotal * TASA_IMPUESTO;
         return {
@@ -118,7 +118,29 @@ class Orden {
     }
 
     listarProductosDescendente() {
-        return [...this._productos].sort((a, b) => b._precio - a._precio);
+        // Creamos una copia del array de productos
+        let productosOrdenados = [];
+        for(let i = 0; i < this._productos.length; i++) {
+            productosOrdenados[i] = this._productos[i];
+        }
+        
+        for(let i = 0; i < productosOrdenados.length - 1; i++) {
+            let maxIndex = i;
+            
+            for(let j = i + 1; j < productosOrdenados.length; j++) {
+                if(productosOrdenados[j]._precio > productosOrdenados[maxIndex]._precio) {
+                    maxIndex = j;
+                }
+            }
+            
+            if(maxIndex !== i) {
+                let temp = productosOrdenados[i];
+                productosOrdenados[i] = productosOrdenados[maxIndex];
+                productosOrdenados[maxIndex] = temp;
+            }
+        }
+        
+        return productosOrdenados;
     }
 
     mostrarInformacionOrden() {
@@ -132,20 +154,13 @@ class Orden {
         const calculoFinal = this.calcularImpuestos();
         
         console.log(`
-Orden: ${this._idOrden}
-Productos:
-${productosOrden}
-Subtotal: $${calculoFinal.subtotal.toFixed(2)}
-Impuesto (16%): $${calculoFinal.impuesto.toFixed(2)}
-Total con impuestos: $${calculoFinal.total.toFixed(2)}
-        `);
+        Orden: ${this._idOrden} Productos: ${productosOrden} Subtotal: $${calculoFinal.subtotal.toFixed(2)} Impuesto (16%): $${calculoFinal.impuesto.toFixed(2)} Total con impuestos: $${calculoFinal.total.toFixed(2)}`);
     }
 }
 
 // Pruebas del sistema
-console.log("=== Prueba del Sistema de Ventas ===");
+console.log("=== Sistema de Ventas ===");
 
-// Crear productos
 let prodc1 = new Producto("Laptop", 500, "Electronica", 30);
 let prodc2 = new Producto("Mouse", 10, "Electronica", 50);
 let prodc3 = new Producto("PC", 1250, "Electronica", 10);
@@ -155,11 +170,8 @@ let prodc6 = new Producto("Tablet", 500, "Electronica", 80);
 let prodc7 = new Producto("Teclado", 50, "Electronica", 120);
 
 // Prueba de precio negativo
-console.log("\n=== Prueba de validación de precio ===");
 let prodc9 = new Producto("Laptop", -500, "Electronica", 340);
 
-// Crear primera orden
-console.log("\n=== Primera Orden ===");
 let orden1 = new Orden();
 orden1.agregarProducto(prodc1);
 orden1.agregarProducto(prodc2);
@@ -174,12 +186,12 @@ orden2.agregarProducto(prodc4);
 orden2.agregarProducto(prodc5);
 orden2.agregarProducto(prodc6);
 orden2.agregarProducto(prodc7);
-// Intentar agregar un sexto producto
+// Intentar agregar un sexto producto, no deberia ser posible
 orden2.agregarProducto(prodc1);
 orden2.descuentosElectronicos();
+
 orden2.mostrarInformacionOrden();
 
 // Prueba de stock insuficiente
-console.log("\n=== Prueba de stock insuficiente ===");
 let orden3 = new Orden();
-orden3.agregarProducto(prodc1, 31); // Intentar agregar más unidades que el stock disponible
+orden3.agregarProducto(prodc1, 31); 
