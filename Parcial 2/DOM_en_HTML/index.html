@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .azul{
+            color: blue
+        }
+    </style>
+    <title>DOM en JavaScript : Document of Object Model</title>
+</head>
+<body>
+    <header>
+        <h1 id = "cabecera">Titulo del Documento</h1>
+        <h2 class = "azul">Titulo del Documento 2 </h2>
+        <h2 class = "azul">Titulo del Documento 3</h2>
+        
+        <p id="parrafo1" class="azul">Parrafo Numero 1</p>
+        <p id="parrafo2" class="azul">Parrafo Numero 2</p>
+        <p id="parrafo3">Parrafo Numero 3</p>
+    </header>
+    <script>
+    //con style podemos definir estilos a las clases o id dentro del body
+    /*
+        //getElementById: para obtener el valor de?
+        //accedemos acorde el flujo del documento
+        //esto me retorna un objeto con sus atributos
+        let cabecera = document.getElementById('cabecera');
+        //.innerHTML: agregar eso me permite obtener el valor de ese elemento
+        //console.log('Saludos!');
+        //Imprimos tal cual lo haciamoss en el js
+        console.log('Valor cabecera como variable: ' + cabecera);
+        console.log(`Valor cabecera con template string: ${cabecera.innerHTML}`);
+        
+        let parrafo = document.getElementById('parrafo');
+        console.log(`Valor de cabecera mediante el uso de inner aqui: ${parrafo.innerHTML}`);
+
+        //dar nuevos valores a los parrafos:
+        //los valores se modifican pero no afectan a sus acciones en codigo anterior
+        parrafo.innerHTML = "Hola, nuevo valor de parrafo con uso de parrafo.innerHTML";
+        console.log(`Nuevo valor modificado : ${parrafo.innerHTML}`);
+
+        //si defini el inner en la instanciacion de la variable se me va a dar un error por ello 
+        //-> let cabecera = document.getElementById('cabecera').innerHTML;
+        //debo mantenerlo dentro de la impresion
+        cabecera.innerHTML = "Nuevo valor de la cabecera";
+        console.log(`Nueva cabecera: ${cabecera.innerHTML}`);
+
+        //Uso del getElementeBytagename: identifica todos los elementos de etiqueta p dentro del documento
+
+        let parrafos = document.getElementsByTagName('p');//el valor q modifique aqui dentro es el que voy a buscar
+        console.log("Numero de parrafos en el documento: "+ parrafos.length);
+
+        //Si no quiero usar el indice entonces no me sirve este for
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+        }
+
+        //for of:
+        for (const element of parrafos) {
+            console.log(element.innerHTML);
+        }
+            -------------------------------------
+       //Ojo el classname y tagname
+        let parrafos = document.getElementsByClassName('azul');
+        console.log("Numero de elementos: " + parrafos.length);
+
+        for (const parrafo of parrafos) {
+            console.log(parrafo.innerHTML);
+        }
+            ------------------query select all----------
+        
+       //quiero todos lso elemtnso que sean h1 y tengan la clase azul
+        //como quiero todos los elementos entonc es puedo trasnquilamente guardar en un array
+       let elementos = document.querySelectorAll('h2.azul');
+       console.log(elementos.length);
+       for (const e of elementos ){
+            console.log(e.innerHTML);
+       }
+       //ME TRAE UNICAMENTE EL PRIMER ELEMENTO POR ESO YA NO PUEDO ITERAR SOBRE ESE ARREGLO 
+       let parrafo = document.querySelector('p');
+       console.log(parrafo.innerHTML);
+       */$
+    </script>  
+</body>
+</html>
