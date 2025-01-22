@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titulo" onmouseover="rojo(this) " onmouseout="azul(this)">Evento Onfouc y Onbliur</h1>
+    <br><br>
+    <form action="" method = "get" id = "formulario">
+    Nombre : <input type="text" id="nombre">
+    Apellido : <input type="text" id="apellido">
+    </form>
+
+    <script>
+        //me ayuda a definir evento y definnir la funcion
+        //usamos una funcion calllBack por eso enviamos sin () pq es una referencia
+        //podemos mejorar esto usando las function arrow
+        // document.getElementById('nombre').addEventListener('focus',(evento)=>{
+        //     evento.target.style.backgroundColor = "pink";
+        // });
+        // document.getElementById('apellido').addEventListener('focus',(evento)=>{
+        //     //el no definir estilo inidica q se manitene su estilo incial que es white
+        //     evento.target.style.backgroundColor = "pink";
+        // });
+        // document.getElementById('nombre').addEventListener('blur',(evento) => {
+        //     evento.target.style.backgroundColor = "";
+        // });
+        // document.getElementById('apellido').addEventListener('blur',(evento) =>{
+        //     evento.target.style.backgroundColor = "";
+        // });
+
+        // //ahora va a recibir un evento
+        // function cambiar(evento) {
+        //     //el evento . target es lo mimos que jacer onfocus = "cambio(this)"
+        //     let component = evento.target;
+        //     component.style.backgroundColor = "yellow";
+        // }
+        // function regresar(evento) {
+        //     let component = evento.target;
+        //     component.style.backgroundColor = "white";
+        // }
+        //traerme todos los elementos del formulario
+        let formulario = document.getElementById('formulario');
+        formulario.addEventListener('focus', (evento) =>{
+            component.style.backgroundColor = "yellow";
+
+            //no olvidar colocar esto en true
+        },true)
+        formulario.addEventListener('blur', (evento) =>{
+            component.style.backgroundColor = "";
+
+            //no olvidar colocar esto en true
+        },true)
+    </script>
+</body>
+</html>

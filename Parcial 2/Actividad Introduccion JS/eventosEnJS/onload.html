@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Evento Onload</title>
+</head>
+<body onload= "entrar()">
+    <h1 id = "titulo">Evento onlodad</h1>
+    <script>
+        function entrar() {
+            alert("entrando a la pagina web");
+            //cookies: archivos que guardan informacion cuando navegamos en la web en tiempo real
+            let texto = "";
+            if(navigator.cookieEnabled){
+                textp = 'Cookies estan habilitadas';
+            }else{
+                texto = "Cookies no habilitadas"
+            }
+            document.getElementById('mostrar').innerHTML = texto
+            //formada por una llave y su respectivo calor
+        }
+    </script>
+
+</body>
+</html>

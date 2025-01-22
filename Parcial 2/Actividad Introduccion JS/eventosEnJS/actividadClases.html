@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad Clases</title>
+</head>
+<div class="PanelConfiguracion">
+    <label>Elegir Tema Pagina</label><br>
+    <button id = "btnCambiarTema" onclick="cambiarTema(this)">Elegir Tema</button><br>
+    <button id = "btnCambiarTema2" onclick="cambiarTema(this)">Elegir Tema</button><br>
+    <button id = "btnCambiarTema3" onclick="cambiarTema(this)">Elegir Tema</button><br>
+    <input type="text" id="nombreTiempoReal" oninput="escribir(this)">
+    <p>Nombre en tiempo real: <span id="nombreReal"></span></p>
+
+    
+
+</div>
+<body>
+    <script>                              
+        document.getElementById('btnCambiarTema').onclick = function (){
+            document.body.style.backgroundColor = "white"; 
+        };
+        document.getElementById('btnCambiarTema2').onclick = function (){
+            document.body.style.backgroundColor = "black"; 
+        };
+        document.getElementById('btnCambiarTema3').onclick = function (){
+            document.body.style.backgroundColor = "blue"; 
+        };
+        function escribir(input) {
+            document.getElementById('nombreReal').textContent = input.value;
+        }
+        function escribir() {
+            const input = document.getElementById('nombreTiempoReal');  
+            const nombreReal = document.getElementById('nombreReal');   
+            nombreReal.textContent = input.value; 
+        }
+
+        document.getElementById('nombreTiempoReal').addEventListener('input', escribir);
+
+    </script>
+</body>
+</html>

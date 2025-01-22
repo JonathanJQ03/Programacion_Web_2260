@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="entrar()">
+    <h1 id="titulo">Evento Onchange</h1>
+    <br><br>
+    Nombre : <input type="text" onchange="convertir(this)">
+    <script>
+        function convertir(input){
+            //convierto en mayusculas todo lo q este dentro del cuadro de texto
+            input.value = input.value.toUpperCase();
+        }
+    </script>
+</body>
+</html>

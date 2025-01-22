@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo de Eventos con JS</title>
+</head>
+
+<body>
+    <!-- //evento el cual de click me permite modificar algo a traves de un boton que -->
+     <!-- //se usaro el this para hacer referencia al parametro dentro del h1 -->
+    <h1 id="Mtitulo" onclick = "functionMostrar(this)" >Eventos Onclick()</h1>
+    <!-- //al llamar la funcion con onclick dentro del boton le estamos dando una funcionalidad al boton -->
+    <button id="btnMostrar" type="button" onclick="functionMostrar()">Mostrar</button>
+    
+    <script>
+        // function functionMostrar(titulo){
+        //     //Extraer el vlaor a traves de :
+        //     // document.getElementById('titulo').innerHTML = "Nuevo Titulo Implementado"
+        //     console.log(titulo);
+        //     titulo.innerHTML = "Cambiamos el titulo";
+        // }
+
+        //ingresando primero al documento, cuando se aplica el evento se llama a la funcion
+        document.getElementById('titulo').onclick = cambiarTexto;
+        //hacemos una referencia mas no el llamado a una función
+        function cambiarTexto() {
+            document.getElementById('titulo').innerHTML = "Otro nuevo cambio";
+        }
+    </script>
+    
+</body>
+</html>
