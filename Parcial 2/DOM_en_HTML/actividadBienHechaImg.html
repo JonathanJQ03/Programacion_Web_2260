@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id = "btnMostrar" onclick = "mostrarImg()" type = "button" >Generar Imagenes Randoms</button>
+    <div id = "mostrador">
+        <h2 id = "subtitulo">Imagenes Randoms</h2><br>
+        <div id="mostradorimagen">
+
+        </div>
+    </div>
+    <script>
+        //no olvidar como usar el serinterval
+//         function mostrarMensaje() {
+//   console.log("Este es un mensaje.");
+// }
+
+// // Usando setInterval para llamar a la función mostrarMensaje cada 2 segundos (2000 ms)
+// setInterval(mostrarMensaje, 2000);
+        let arrayImagesRandon=[
+            "images/jg.jpeg",
+            "images/jg2.jpeg",
+            "images/jg3.jpeg",
+            "images/sp.jpeg"
+        ]
+        let contador = 0;
+        function mostrarImg() {
+            if(contador >= arrayImagesRandon.length){
+                contador = 0;
+            }
+            //para msotrar la ruta de la imagen la coloca como si estuviera pobniendo una en un div solo que en ``
+                let contenedor = document.getElementById('mostradorimagen');
+                //${arrayImagesRandon[index]} simplemente estoy recuperando la ruta de la imagen
+                contenedor.innerHTML = `<img src=" ${arrayImagesRandon[contador]}" alt="Imagen Random" style="max-width: ;150px height: 150px;">`;
+            contador++;
+            
+        }
+
+        setInterval(mostrarImg,1000);
+
+    </script>
+</body>
+</html>
