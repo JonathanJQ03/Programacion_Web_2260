@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h1>Rellene el siguiente formulario</h1>
+<body>
+<form id = "formulariomsj" method = "get">
+<label>Nombre Usuario</label>
+<input id = "nombre" type = "text"> 
+<br><br>
+<label>Correo Destinatario</label>
+<input id = "dest" type = "text"> 
+<br><br>
+<label>Mensaje</label>
+<input id = "msj" type = "text"> 
+<br><br>
+<button id = "btnMostrar" type = "button" onclick = "mostrarDatos()" >Enviar</button>
+</form>
+
+<div id = "mostraDatos" ></div>
+<script>
+
+let frmMsj = document.forms['formulariomsj'];
+let datos = '';
+function mostrarDatos(){
+datos = '';
+//si el boton esta dentro puedop ahcer una condicion de que no se escoja ese elemento
+
+for(const rescatar of frmMsj.elements){
+datos = datos + rescatar.value + "<br>"
+}
+
+document.getElementById('mostraDatos').innerHTML = datos;
+}
+
+</script>
+</body> 
+
+
+</html>
