@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with DOM</title>
+</head>
+<body>
+    <h1>Formulario Basico con DOM</h1>
+    <form action="get" id="formulario">
+    <label> Name: </label>
+    <input type="text" name = "name" id="name"><br>
+    <label >Email: </label>
+    <input type="text" name = "email" id="email"><br>
+    <label >Message: </label>
+    <input type="text"  name = "msj" id="msj"><br>
+    <button id="btnEnviar" onclick="mostrarDatosForm()" type ="button">Send</button>
+    </form> 
+    <div class ="mostrarInformacion">
+      
+
+    </div>
+</body>
+    <script>
+        //Podemos acceder al formulario de dos formas
+        //1. let forms = document.getElementById("identificador_form");
+        //2. let forms = document.forms["identificador_form"];
+        //para acceder a los elementos podemos hacerlo por un input o por el uso de todos los elementos
+        //let elementoForm = forms.elements["identificador_elemento"]; accedemos del form al elemento
+        //let elementForm = forms.document.getElementById("identificador_elemento "); accedemos del dom al id directamente
+        //al acceder a document,forms accedemos a TODOS FORMULARIOS
+        //dentro de los elements del formulario no tomamos en cuanta los labels, solo inputs,selects,texarreas etc...
+        function mostrarDatosForm() {
+            let frm = document.forms['formulario'];
+            let text = '' // voy a guardar una cadena vacia para poder imprimir en esa mas adelante
+            for (const elementoForm of frm.elements){
+                text = text + elementoForm.value + '<br>';
+            }
+            document.querySelector('.mostrarInformacion').innerHTML = text;
+
+        }
+        /*
+        Características de innerHTML:
+            Reemplaza TODO el contenido interno
+            Puede insertar HTML, no solo texto
+            Si insertras HTML, lo interpreta y renderiza
+        */
+
+    </script>
+</html>

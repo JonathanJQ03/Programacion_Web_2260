@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titulo1">Este es mi titulo 1</h1>
+    <p id="parrafo1">Hola soy parrafo 1</p>
+    <p id="parrafo2">Hola soy parrafo 2</p>
+    <p id="parrafo3">Hola soy parrafo 3</p>
+    <h2 class="titulo2">Titulo de clase</h2>
+    <h2 class="titulo2">Titulo de clase</h2>
+    <h2 class="titulo2">Titulo de clase</h2>
+
+    <!-- DOM :Document Objetc Model 
+    Es un documento que define la estructura jerarquica de un documento HTML
+    DOCUMENT
+        HTML
+            HEAD
+                ELEMENT: TITLE
+                    TEXT: MY TITLE
+            
+            BODY
+                ELEMENT: H1
+                    TEXT: HOLA MUNDO
+                ELEMENTO A  
+                    LINK REFERNCIAL
+    No es ma la estructura jerarquica de los elementos HTML , etiquetas y objetos dentro de este
+    SELECTORES DEL DOM: Estructuras para poder tomar el contenido de alguna etiqueta o elemento del DOM
+    tengo varias etiquetas y despues puedo tomarlas para modificarlas a mi gusto
+-->
+    <script>
+        //1. getElementById: Seleccionar un elemento acorde su id, ya seleccionado puedo interactuar como desee
+        //Utilizamos antes el document. ya que es un metodo q carga todas las funcionalidades al DOM
+        //Podemos guardar etos valores en variables
+        //sintaxis: variable = document.getElementById("nombre_ID");
+        let titulo1 = document.getElementById("titulo1");
+        //Uso del inner.HTML: sirve para leer lo que esta dentro de la etiqueta 
+        //modificar dentro del contenido de la etiqueta
+        titulo1.innerHTML = "Hola, Este es un nuevo titulo :)..."
+        console.log(titulo1.innerHTML);
+        //impresion como en js pero con la diferencia e imprimi todo el titulo 1
+        console.log(`Este es una prueba de String del JS ${titulo1.innerHTML}`);
+        //para usar el elemento antes debo definirlo en una variable rescatando su valor en una variable
+        //pero si puedo obtener su contendio por consola
+        console.log(parrafo1.innerHTML);
+        //Si restcamos el elemento
+        let p1 = document.getElementById('parrafo1');
+        console.log(p1.innerHTML)
+        p1.innerHTML = "Hola soy el nuevo parrafo 2";
+        console.log(p1.innerHTML);
+
+        //2. getElementByTagName: Conseguir elementos acorde su etiqueta pero me devuelve una coleccion de elementos
+        //por ende de viajar entre esas etiquetas como si fuera un array y mediante posiciones
+        let parrafos = document.getElementsByTagName('p');
+        //impresion del total de elementos seleccionados con etiqueta p
+        //pero esto se guarda en una coleccion donde el elemento 1 esta en la posicion 0
+        //del mismo modo essta coleccion va desde 0 hasta n-1
+        console.log(parrafos.length);
+        //esto me sirve para recorrer indices y posiciones
+        for (let index = 0; index < parrafos.length; index++) {
+            const element = parrafos[index];
+            element.innerHTML = `Hola soy el nuevo parrafo ${index + 100}`;
+            console.log(element.innerHTML);
+        }
+        //en cambio para recorrer directmente los elementos puedo hacer
+        for (const e of parrafos) {
+            e.innerHTML = `Hola modifique el contenido por cada parrafo`;
+            console.log(e.innerHTML);
+        }
+        //3. selector byClassName: Seleccionar elementos acorde a su clase
+        let titulos2 = document.getElementsByClassName("titulo2");
+        console.log(titulos2.length);
+        //Recorro los elementos y modifico los titulos h2 con esa misma clase
+        for (const t of titulos2) {
+            t.innerHTML = `Hola modifique el codigo por cada parrafo`;
+            console.log(t.innerHTML);
+        }
+        //4. query select all: Nos ayuda a recuperar todos los elemenetos q cumplan con una condicion
+        let parrafos2 = document.querySelectorAll("p");
+        console.log("longuitud de los parrafos: " + parrafos2.length);
+        //Los query select all nos devuelven un Node List: 
+        //parecidos a los arrays pero no son lo mismo, podemos llamar tanto etiquetas como nombres de clases
+        //puedo usar posiciones en arrays para ingresar a los elementos con el mismo contenido
+        parrafos2[2].innerHTML = "Hola es un nuevo valor agreago al parrafo";
+        //puedo buscar elementos acorde varios criterios, esto aplicada puedo separarlos por "," a menos q sean clases y sean del mismo tipo
+        //nodeList es un "tipo de objeto" de tipo array sin todas las funcionalidades de este mismo
+        //se usan nodelist con el query slect all pero ByclassName, by tagname usan colectiones
+        //las colecciones son dinamicas y los nodeList son estaticos, debo volver a ejecutar el queryselectall para actualizar todos los elementos
+        //no olvidar q para imprimir colections y nodeList debo hacerlo por bucles for of e ir iterando SUS ELEMENTOS
+
+    </script>
+</body>
+</html>
