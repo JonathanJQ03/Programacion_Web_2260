@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos en HTML</title>
+    <style>
+        #panelConfig {
+            display: none;
+        }
+        #areaTexto {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Panel de Control interactivo</h1>
+    <button id="btnMostrarPanel" onclick="mostrarPanel(this)" type = "button" >Mostrar Panel</button>
+    <div id="panelConfig">
+        <h2>Colores de fondo</h2>
+        <!---No olvidar colocar los valores dentro del value
+        Select no almacena valores solo muestra informacion a menos q lo especifique dentro 
+        input: pasa lo mismo debemos definir el value como text, cehckBox, radio, options
+        textarea
+        buttons,-->
+        <select  id="coloresOpciones" onchange = 'cambiarColor()'>
+            <option  id="color1" value = "Red">Red</option>
+            <option  id="color2" value = "Yellow">Yellow</option>
+            <option  id="color3" value = "Blue">Blue</option>
+            <option  id="color4" value = "Green">Green</option>
+            <option id = "color5" value = "Black">Black</option>
+        </select>
+
+        <h3>¿Desea Realizar algún comentario?</h3>
+        <input type="checkbox"  id="opcion1" name="opcion" value="valor1">
+        <label for="opcion1">Seleccione para habilitar los comentarios: </label><br>
+        <textarea name="areaTexto" id="areaTexto" cols="30" rows="10"></textarea>
+        <h3>Ingrese un elemento al arreglo: </h3>
+        <input type="text" id="agregarElemento" onchange = "agregarArray(this)"><br>
+        <span id = "mostrarArray"></span>
+        <h3>Escritura en tiempo real</h3>
+        <input type="text" id="timeRealEscritura">
+        <p id="mostrarTiempoReal"> </p>
+    </div>
+
+    <script>
+        function mostrarPanel() {
+            //EL style .display me ayuda a mostrar o ocultar algun elemento con etiquetas 
+            document.getElementById('panelConfig').style.display = 'block';
+    }
+        //funcion para recatar valores es el onchange
+        function cambiarColor() {
+        let eleccionColor = document.getElementById('coloresOpciones');
+        let opcion = eleccionColor.value;
+        
+        if(opcion == 'Red') {
+            document.body.style.backgroundColor = 'red';
+        } else if(opcion == 'Yellow') {
+            document.body.style.backgroundColor = 'yellow';
+        } else if(opcion == 'Blue') {
+            document.body.style.backgroundColor = 'blue';
+        } else if(opcion == 'Green') {
+            document.body.style.backgroundColor = 'green';
+        } else if(opcion == 'Black') {
+            document.body.style.backgroundColor = 'black';
+        }   
+    }
+    // con el addlistener no es necesario colocar el evento dentro del elemento a modificar
+    document.getElementById('opcion1').addEventListener('change', (evento) =>{
+     let estado = document.getElementById('areaTexto');
+     if(evento.target.checked){ 
+        document.getElementById('areaTexto').style.display = 'block';
+     }else{
+        document.getElementById('areaTexto').style.display = 'none';
+     }
+    },true)
+    //ultimo ejercicio
+    //definir mi array fuera de la funcion para poder acceder a el de manera global dentro de todo el script
+    //lo que hago es que se va agregar todo en tiempo real de modo que cada ingreso de un valor vamos a tener q actualizar 
+    //casa input para poder agregar al final
+    let arrayTextos = [];
+    document.getElementById('agregarElemento').addEventListener('change', (evento) => {  
+        let elementoAgregar = document.getElementById('agregarElemento').value;
+        arrayTextos.push(elementoAgregar);
+    },false);
+
+    //puedo hacer esta parte de la seccion 5 con evento on change
+    //Dentro de los inputs tendremos un cuadro de texto el cual va a tener un valor textual que sera .value
+    function agregarArray(){;
+        //rescato el elemento donde voy a mostrar el array
+        let elementoAgregar = document.getElementById('mostrarArray');
+        elementoAgregar.innerHTML = arrayTextos;
+    }
+    //mostrar una impresion de texto en tiempo real
+    //evento input usado para detectar cambios en un campo de entrada lo mismo es para textArea o selects 
+    //mientras escribo en tiempo real puedo interactura con este en tiempo real 
+    document.getElementById('timeRealEscritura').addEventListener('input', (evento)=>{
+        //el evento.target.value; me ayuda a obtener el valor del campo de entrada acutual al campo q estoy definiendo
+        //de modo que se actulizara dentro de campos q voy a escribir
+        //la diferencia de text y de innerHTml es que el uno solo muestra el texto y el otro muestra todo y etiquetas q se usan
+        document.getElementById('mostrarTiempoReal').innerHTML = ` Mensaje en tiempo real: ${evento.target.value}`;
+    },false);
+    </script>
+
+</body>
+</html>
