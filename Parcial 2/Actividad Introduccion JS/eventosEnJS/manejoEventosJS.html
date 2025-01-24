@@ -27,7 +27,33 @@
         function cambiarTexto() {
             document.getElementById('titulo').innerHTML = "Otro nuevo cambio";
         }
-    </script>
+        //ONCLICK: usado en elementos los cuales podamos seleccionar con un click  
+        //permite ejecutar una accion o un funcion
+
+        //eventos addListerner: evento q permite el uso de varias funciones a partir de un evento en un lemetno
+        //sintaxis basica: element.addEventListener(event, function, useCapture);
+        //element es el elemento al q se le va aplicar el evento
+        //event es el evento
+        // use Capture es un valor boolenao es comuin dejarlo en false
+        //Contamos con los sigueintes eventos para interactuar en el stio web
+//         click: Se activa cuando el usuario hace clic en un elemento.
+// dblclick: Se activa cuando el usuario hace doble clic en un elemento.
+// mousedown: Se activa cuando el usuario presiona un botón del ratón sobre un elemento.
+// mouseup: Se activa cuando el usuario suelta un botón del ratón sobre un elemento.
+// mousemove: Se activa cuando el usuario mueve el ratón sobre un elemento.
+// mouseover: Se activa cuando el ratón entra en un elemento.
+// mouseout: Se activa cuando el ratón sale de un elemento.
+// keydown: Se activa cuando el usuario presiona una tecla en el teclado.
+// keyup: Se activa cuando el usuario suelta una tecla en el teclado.
+// keypress: Se activa cuando el usuario presiona una tecla (aunque ya está algo obsoleto).
+// focus: Se activa cuando un elemento gana el foco (por ejemplo, cuando un campo de formulario es seleccionado).
+// blur: Se activa cuando un elemento pierde el foco.
+//podemos definir variables de modo que les asociamos este addlistener como metodo
+        let formulario2 = document.getElementById('formulario');
+        formulario2.addEventListener(focus, (funcionEvento) => {
+            component.style.backgroundColor = "yellow";
+        },false)
+     </script>
     
 </body>
 </html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- //debo indicar el foco aqui en el cuerpo principal y no es necesario guardar
+//el .focus en alguna variable asi: onload = 'activarFoco()' -->
+<body onload = 'carga()'>
+    <form id = "formulario" method = "get">
+        Ingrese un nombre: <input type="text" id = "nombre"><br>
+        Ingrese un apellido: <input type="text" id = "apellido"><br>
+        <button id="BtnConfirmar" input = "submit">Confirmar</button>
+    </form>
+    <!--- eL onmouseover se usa dentro de alguna etiqueta a modificar su elemento
+    dentro de la etiqueta junto al over y up van el nombre de la funcion que va en el script
+    tanto over como up van dentro de la etiqueta---->
+    <p id="textoRojo" onmouseover="rojo(this)" onmouseout="black(this)">Hola que color soy?</p>
+    <!--Estos enventos tmb se usan dentro de las eitiquetas a interactuar-->
+    <button id="colorBody" onfocus = "cambiarColor(this)" onblur="regresarColor(this)">Cambiar Color</button>}
+    <h3>Seleccion su artista favorito:</h3>
+    <!---Seleccione su artista favorito es para crear un seccion de elecicion-->
+    <select  id="artistas" onchange = "cambiarArtista()">
+        <option id ="1">José José</option>
+        <option  id="2">Maluma</option>
+        <option  id="3">Luis Fonsi</option>
+        <option  id="4">Daddy Yankee</option>
+    </select>
+    Opcion Elegida: <span id="opcionElegida"></span>
+    <script>
+        //Eventos onmouseover y onmouseout y onload
+        //evento onload: al recargar o cargar una pagina puedo poner un foco en algun elemento dentro del sitio web
+        function activarFoco(){
+            //voy a conseguir el id del elemento en el cual quiero centrar mi foco en la página
+            document.getElementById('nombre').focus();
+        }
+        //onmouserover : funciona cuando el mouse esta encima de un elemento o etiqueta
+        //onmouseout: se ejecuta cuando le quito el mouse al elemento
+        //onload: se ejecuta cuando se carga la pagina
+        //puedo moficar directamente el color del elemento y aplicar lo q desee dentro
+        function rojo(){ 
+            textoRojo.style.color = 'red';
+            let letra = document.getElementById('textoRojo');
+            letra.innerHTML = 'SOY COLOR ROJO';
+        }
+        function black() {
+            textoRojo.style.color = 'black';
+            let letra = document.getElementById('textoRojo');
+            letra.innerHTML = 'SOY COLOR NEGRO';
+        }
+        //Estos eventos a continuacion se pueden hacer para botonotes iterativos
+        //o cualquier otro elemento q pueda seleccionar el usuario
+        //onfocus: Gana un enfoque por ejemplo cuando un usario hace click ocurre algo
+        //onblur: pierde el enfoque entonces se pierde lo que hacia ese elemento interacativo
+        function cambiarColor(){
+            //no olvidar que debemos accder a todo elemento como un document. 
+            document.body.style.backgroundColor = 'black';
+            document.body.style.color = 'white';
+        }
+        function regresarColor() {
+            document.body.style.backgroundColor = 'white';
+            document.body.style.color = 'black';
+        }
+        // en un select no es necesario iterar si al final mi usuario va elegir el valor de la option
+        //Evento on change js: Usados en texareas, formularios o selects, inputs , botones etc
+        //Usado cuando campos interactivos han cambiado y se necesita verificar algo de su contenido o valor
+        function cambiarArtista() {
+            let artista = document.getElementById('artistas');
+            let eleccion = artista.value
+            //estos valores del select se guardar en un nodeList
+            document.getElementById('opcionElegida').innerHTML = `Su eleccion es: ${eleccion}`;
+            //onload: cuando se carga completa la pagina o un recurso se ha cargado completamentea
+            //se usan en el body directamente el onload
+        } 
+        //esta funcion indica una alerta al momento de cargarse todo correctamente
+        function carga(){
+            alert('Pagina cargada completamente...')
+        }
+        //Es mejor acceder al elemento y modificarlo directmente alli
+        let inputNombre = document.getElementById('nombre');
+        inputNombre.addEventListener('focus',(evento) =>{
+            inputNombre.style.backgroundColor = "pink";
+        },false);
+    </script>
+</body>
+</html>
