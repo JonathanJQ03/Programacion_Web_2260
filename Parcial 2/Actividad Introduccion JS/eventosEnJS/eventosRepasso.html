@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca Digital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        #consola, #github-info {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        #notificaciones {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        .notificacion {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .notificacion.exito {
+            border-left: 5px solid green;
+        }
+        .notificacion.alerta {
+            border-left: 5px solid orange;
+        }
+        .notificacion.error {
+            border-left: 5px solid red;
+        }
+        .notificacion .close {
+            cursor: pointer;
+            color: #888;
+            font-weight: bold;
+        }
+        #github-info pre {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Biblioteca Digital con Gestión GitHub</h1>
+    
+    <div id="consola"></div>
+    <div id="github-info"></div>
+    
+    <input type="text" id="inputComando" placeholder="Ingrese un comando">
+    <button onclick="ejecutarComando()">Ejecutar</button>
+    
+    <div id="notificaciones"></div>
+
+    <script>
+        // Clase de Notificaciones
+        class SistemaNotificaciones {
+            constructor() {
+                this.contenedor = document.getElementById('notificaciones');
+            }
+
+            mostrar(mensaje, tipo = 'exito') {
+                const notificacion = document.createElement('div');
+                notificacion.classList.add('notificacion', tipo);
+                
+                notificacion.innerHTML = `
+                    <span>${mensaje}</span>
+                    <span class="close" onclick="this.parentElement.remove()">×</span>
+                `;
+
+                this.contenedor.appendChild(notificacion);
+
+                setTimeout(() => {
+                    if (notificacion.parentNode) {
+                        notificacion.parentNode.removeChild(notificacion);
+                    }
+                }, 5000);
+            }
+
+            notificarDisponibilidad(libro) {
+                this.mostrar(`El libro "${libro}" está ahora disponible`, 'exito');
+            }
+
+            recordatorioDevolucion(libro, fecha) {
+                this.mostrar(`Recordatorio: Devolver "${libro}" antes del ${fecha}`, 'alerta');
+            }
+
+            confirmarReserva(libro) {
+                this.mostrar(`Reserva de "${libro}" confirmada`, 'exito');
+            }
+
+            errorReserva(libro) {
+                this.mostrar(`No se pudo reservar "${libro}"`, 'error');
+            }
+        }
+
+        // Inicializar notificaciones
+        const notificaciones = new SistemaNotificaciones();
+
+        // Clase Libro
+        class Libro {
+            constructor(titulo, autor, genero, disponible = true) {
+                this.titulo = titulo;
+                this.autor = autor;
+                this.genero = genero;
+                this.disponible = disponible;
+                this.fechaPrestamo = null;
+                this.fechaDevolucion = null;
+            }
+        }
+
+        // Biblioteca de libros
+        let bibliotecaLibros = [
+            new Libro("Don Quijote", "Miguel de Cervantes", "Novela"),
+            new Libro("Cien Años de Soledad", "Gabriel García Márquez", "Novela"),
+            new Libro("El Principito", "Antoine de Saint-Exupéry", "Infantil")
+        ];
+
+        // Consola de Gestión
+        function mostrarEnConsola(mensaje, esError = false) {
+            const consola = document.getElementById('consola');
+            const linea = document.createElement('div');
+            linea.classList.add('comando');
+            linea.innerHTML = `> ${mensaje}`;
+            
+            if (esError) {
+                linea.classList.add('error');
+            }
+            
+            consola.appendChild(linea);
+            consola.scrollTop = consola.scrollHeight;
+        }
+
+        // Funciones de Gestión de Libros
+        function listarLibros() {
+            return bibliotecaLibros.map(libro => 
+                `${libro.titulo} - ${libro.autor} (${libro.disponible ? 'Disponible' : 'Prestado'})`
+            ).join('\n');
+        }
+
+        function agregarLibro(titulo, autor, genero) {
+            const nuevoLibro = new Libro(titulo, autor, genero);
+            bibliotecaLibros.push(nuevoLibro);
+            notificaciones.confirmarReserva(titulo);
+            return `Libro "${titulo}" agregado exitosamente`;
+        }
+
+        function prestarLibro(titulo) {
+            const libro = bibliotecaLibros.find(l => l.titulo === titulo);
+            if (libro && libro.disponible) {
+                libro.disponible = false;
+                libro.fechaPrestamo = new Date();
+                libro.fechaDevolucion = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000);
+                notificaciones.recordatorioDevolucion(titulo, libro.fechaDevolucion.toLocaleDateString());
+                return `Libro "${titulo}" prestado. Debe devolverse el ${libro.fechaDevolucion.toLocaleDateString()}`;
+            }
+            notificaciones.errorReserva(titulo);
+            return `El libro "${titulo}" no está disponible`;
+        }
+
+        function devolverLibro(titulo) {
+            const libro = bibliotecaLibros.find(l => l.titulo === titulo);
+            if (libro && !libro.disponible) {
+                libro.disponible = true;
+                libro.fechaPrestamo = null;
+                libro.fechaDevolucion = null;
+                notificaciones.notificarDisponibilidad(titulo);
+                return `Libro "${titulo}" devuelto exitosamente`;
+            }
+            return `El libro "${titulo}" no está prestado`;
+        }
+
+        function buscarLibro(termino) {
+            return bibliotecaLibros
+                .filter(libro => 
+                    libro.titulo.toLowerCase().includes(termino.toLowerCase()) ||
+                    libro.autor.toLowerCase().includes(termino.toLowerCase()) ||
+                    libro.genero.toLowerCase().includes(termino.toLowerCase())
+                )
+                .map(libro => `${libro.titulo} - ${libro.autor} (${libro.genero})`)
+                .join('\n');
+        }
+
+        // Gestión GitHub (Simulación)
+        function mostrarGitHubInfo() {
+            const githubInfo = document.getElementById('github-info');
+            githubInfo.innerHTML = `
+                <h2>Documentación Proyecto GitHub</h2>
+                <pre>
+# Biblioteca Digital - Documentación de Repositorio
+
+## Descripción del Proyecto
+Sistema de gestión de biblioteca digital con funcionalidades de préstamo y devolución de libros.
+
+## Estructura del Repositorio
+- \`/src\`: Código fuente
+- \`/docs\`: Documentación
+- \`/tests\`: Pruebas unitarias
+
+## Issues Identificados
+1. Mejora de Sistema de Notificaciones
+2. Implementar Persistencia de Datos
+3. Agregar Autenticación de Usuarios
+
+## Pull Request Pendientes
+- Rama \`feature/notificaciones\`: Sistema mejorado de alertas
+- Rama \`feature/persistencia\`: Guardado de estado de libros
+
+## Deployment
+- URL GitHub Pages: https://tu-usuario.github.io/biblioteca-digital
+
+## Pasos para Contribuir
+1. Clonar repositorio
+2. Crear rama de feature
+3. Implementar cambios
+4. Crear Pull Request
+5. Esperar revisión
+                </pre>
+            `;
+        }
+
+        // Ejecutar comandos
+        function ejecutarComando() {
+            const input = document.getElementById('inputComando');
+            const comando = input.value.trim().toLowerCase();
+            let resultado = '';
+
+            try {
+                if (comando.startsWith('listar')) {
+                    resultado = listarLibros();
+                } else if (comando.startsWith('agregar ')) {
+                    const [, titulo, autor, genero] = comando.split(' ');
+                    resultado = agregarLibro(titulo, autor, genero);
+                } else if (comando.startsWith('prestar ')) {
+                    const titulo = comando.substring(8);
+                    resultado = prestarLibro(titulo);
+                } else if (comando.startsWith('devolver ')) {
+                    const titulo = comando.substring(9);
+                    resultado = devolverLibro(titulo);
+                } else if (comando.startsWith('buscar ')) {
+                    const termino = comando.substring(7);
+                    resultado = buscarLibro(termino);
+                } else if (comando === 'github') {
+                    mostrarGitHubInfo();
+                    resultado = 'Información de GitHub mostrada';
+                } else if (comando === 'ayuda') {
+                    resultado = `Comandos disponibles:
+- listar: Muestra todos los libros
+- agregar [titulo] [autor] [genero]: Añade un nuevo libro
+- prestar [titulo]: Presta un libro
+- devolver [titulo]: Devuelve un libro
+- buscar [termino]: Busca libros
+- github: Muestra info del repositorio
+- ayuda: Muestra esta ayuda`;
+                } else {
+                    resultado = 'Comando no reconocido. Escribe "ayuda" para ver los comandos.';
+                }
+
+                mostrarEnConsola(comando);
+                mostrarEnConsola(resultado);
+            } catch (error) {
+                mostrarEnConsola(`Error: ${error.message}`, true);
+            }
+
+            input.value = '';
+        }
+
+        // Eventos
+        document.getElementById('inputComando').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                ejecutarComando();
+            }
+        });
+
+        // Mensaje de bienvenida
+        mostrarEnConsola('Bienvenido a la Biblioteca Digital');
+        mostrarEnConsola('Escribe "ayuda" para ver los comandos disponibles');
+        mostrarEnConsola('Escribe "github" para ver la documentación del repositorio');
+    </script>
+</body>
+</html>
